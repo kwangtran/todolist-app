@@ -80,6 +80,9 @@ export default class App extends Component {
       // console.log('items = ' + items);
    }
    componentWillMount() {
+      if (localStorage.getItem("tasks") == null) {
+         localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
       let items = JSON.parse(localStorage.getItem("tasks"));
       this.setState({
          items: items
